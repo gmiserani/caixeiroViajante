@@ -1,6 +1,7 @@
 import numpy as np
+import branchandbound
 #import pandas as pd
-#import scipy as spdef 
+import scipy as spdef 
 
 def genDots(size):
     y = np.random.random_integers(0, 400, size=size)
@@ -15,7 +16,7 @@ def Euclidiana(x, y, matrix, size):
     for i in range(size):
         for j in range(size):
             if(i == j):
-                dist = np.inf
+                dist = np.inf #mudar para zero
             else:
                 dist = np.sqrt(((x[i]-x[j])**2)+((y[i]-y[j])**2))
                 dist = abs(dist)
@@ -39,9 +40,10 @@ def matrixgen(x, y, size):
     for i in range(size):
         matrix.append([0 for i in range(size)])
     return matrix
-
+matriz = [[np.inf, 3, 1, 5, 8], [3, np.inf, 6, 7, 9], [1, 6, np.inf, 4, 2], [5, 7, 4, np.inf, 3], [8, 9, 2, 3, np.inf]]
 x, y= genDots(4)
 matrix = matrixgen(x, y, 4)
-print(Manhattan(x, y, matrix, 4))
+matrix = Manhattan(x, y, matrix, 4)
+print(branchandbound.branchandbound(matriz, 5))
 
 #distancia euclidiana vs distancia de manhattan
