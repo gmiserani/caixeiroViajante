@@ -2,6 +2,8 @@ import numpy as np
 import branchandbound
 #import pandas as pd
 import scipy as spdef 
+import twice
+import christofides
 
 def genDots(size):
     y = np.random.random_integers(0, 400, size=size)
@@ -40,10 +42,19 @@ def matrixgen(x, y, size):
     for i in range(size):
         matrix.append([0 for i in range(size)])
     return matrix
+
+
 matriz = [[np.inf, 3, 1, 5, 8], [3, np.inf, 6, 7, 9], [1, 6, np.inf, 4, 2], [5, 7, 4, np.inf, 3], [8, 9, 2, 3, np.inf]]
+
+matrizx = [[np.inf, 4, 8, 9, 12], [4, np.inf, 6, 8, 9], [8, 6, np.inf, 10, 11], [9, 8, 10, np.inf, 7], [12, 9, 11, 7, np.inf]]
+
+matrizc = [[np.inf, 4, 8, 9, 12], [4, np.inf, 6, 8, 9], [8, 6, np.inf, 10, 11], [9, 8, 10, np.inf, 7], [12, 9, 11, 7, np.inf]]
+ 
 x, y= genDots(4)
 matrix = matrixgen(x, y, 4)
 matrix = Manhattan(x, y, matrix, 4)
-print(branchandbound.branchandbound(matriz, 5))
+print(christofides.christofides(matrizx, 5))
+#print(twice.approxTSPtour(matrizx, 5))
+#print(branchandbound.branchandbound(matriz, 5))
 
 #distancia euclidiana vs distancia de manhattan
