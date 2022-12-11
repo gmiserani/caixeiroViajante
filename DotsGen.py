@@ -282,4 +282,4 @@ def chamadora(distancia, algoritmo, tamanho):
         print(branchandbound(matrix, tamanho))
     
 #para a primeira instancia do problema
-chamadora('e', 'b', 2**4)
+#chamadora('e', 'c', 2**4)
