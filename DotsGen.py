@@ -1,3 +1,10 @@
+'''
+Nome: Gabriela Moraes Miserani de Freitas
+Matricula: 2020006566
+email: gmiserani@ufmg.br
+'''
+
+
 import numpy as np
 import pandas as pd
 import scipy as spdef 
