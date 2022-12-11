@@ -24,7 +24,7 @@ def bound(matrix, size):
 
 def nextbound(dicionario1, CurrentSolution, next, matrix, size1):
     dicionario = dicionario1.copy()
-    size = np.size(CurrentSolution)
+    size = len(CurrentSolution)
     if size == size1: #caso seja a volta para o primeiro vertice do ciclo
         ultimoVetice = CurrentSolution[-1]
         penultimovertice = CurrentSolution[-2]
@@ -110,7 +110,7 @@ def branchandbound(matrix, size):
     print(queue)
     sol = []
     best = np.inf
-    while np.size(queue) != 0:
+    while len(queue) != 0:
         node = queue.pop()
         #print(node)
         #print(node[2])
@@ -135,7 +135,7 @@ def branchandbound(matrix, size):
                         print("wtf")
             else:
                 bound2, initialBound = nextbound(node[4], node[3], 0, matrix, size)
-                if matrix[node[3][-1]][0] != np.inf and bound2 < best and np.size(node[3]) == size:
+                if matrix[node[3][-1]][0] != np.inf and bound2 < best and len(node[3]) == size:
                     bound3, initialBound = nextbound(node[4], node[3], 0, matrix, size)
                     node[1] = node[1] + 1
                     node[2] = node[2] + matrix[node[3][-1]][0]
